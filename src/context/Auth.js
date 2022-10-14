@@ -19,11 +19,11 @@ import {
 } from "firebase/firestore";
 
 import { auth, firestore } from "../lib/firebase-init";
-import {
-	GoogleAuthProvider,
-	signInWithPopup,
-	signInWithRedirect,
-} from "firebase/auth";
+// import {
+// 	GoogleAuthProvider,
+// 	signInWithPopup,
+// 	signInWithRedirect,
+// } from "firebase/auth";
 
 const UserContext = createContext();
 
@@ -64,10 +64,10 @@ export const AuthContextProvider = ({ children }) => {
 			});
 	};
 
-	const googleSignIn = () => {
-		const provider = new GoogleAuthProvider();
-		signInWithPopup(auth, provider);
-	};
+	// const googleSignIn = () => {
+	// 	const provider = new GoogleAuthProvider();
+	// 	signInWithPopup(auth, provider);
+	// };
 
 	useEffect(() => {
 		const currUser = onAuthStateChanged(auth, (currentUser) => {
@@ -91,8 +91,7 @@ export const AuthContextProvider = ({ children }) => {
 	}, []);
 
 	return (
-		<UserContext.Provider
-			value={{ signup, login, logout, user, msg, sendMsg, googleSignIn }}>
+		<UserContext.Provider value={{ signup, login, logout, user, msg, sendMsg }}>
 			{children}
 		</UserContext.Provider>
 	);

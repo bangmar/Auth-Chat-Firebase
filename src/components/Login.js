@@ -19,16 +19,6 @@ function Login() {
 		}
 	};
 
-	const googleSignInHandler = async (e) => {
-		e.preventDefault();
-		try {
-			await googleSignIn();
-			navigate("/home");
-		} catch (err) {
-			console.log(err.message);
-		}
-	};
-
 	return (
 		<div className='container m-auto my-10 mx-10'>
 			<div className='mb-5'>
@@ -70,14 +60,6 @@ function Login() {
 						className='text-slate-200'
 						onClick={loginHandler}>
 						Login
-					</button>
-				</div>
-				<div className='bg-blue-500 w-fit px-6 py-2 rounded-lg shadow-sm'>
-					<button
-						type='submit'
-						className='text-slate-200'
-						onClick={googleSignInHandler}>
-						Login dengan google
 					</button>
 				</div>
 			</form>
